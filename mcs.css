@@ -1,3 +1,8 @@
+html body{ 	background-color: #ffffff;
+		padding: 1;
+		font-family: arial,helvetica;
+		font-size: 11pt;
+		color:#000000 }
 html table{ 	background-color: #ffffff;
 		padding: 1;
 		font-family: arial,helvetica;
