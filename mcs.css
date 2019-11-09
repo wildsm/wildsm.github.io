@@ -1,0 +1,21 @@
+body { 	background-color: #ffffff;
+		margin: 3px; 
+		padding: 1;
+		font-family: arial,helvetica;
+		font-size: 10pt;
+                height: 100%;
+		color:#000000 }
+table.top { color: #ffffff;
+		background-color: #000000;
+		padding: 0px;
+		width: 100%}
+a:hover {background-color: #E7F2F6}
+a:link { color: #005A9C; text-decoration:none}
+a:visited { color: #005A9C; text-decoration:none}
+.head {	color: #ffffff }
+.floatright { float: right;
+		margin: 0 0 5px 5px;
+		background-color: #aaccdd }
+.floatleft { float: left;
+		margin: 0 5px 5px 0;
+		background-color: #aaccdd }
