@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)">
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)">
+
+<meta name="src" content="supplement.tex">
+<meta name="date" content="2016-12-16 08:20:00">
+<link rel="stylesheet" type="text/css" href="images/taxcon_files/supplement.css">
+</head><body>
+<div class="center">
+<p class="noindent">
+</p><p class="noindent"><span class="cmr-17x-x-120">A Taxonomy of Constraints in Black-Box</span>
+<span class="cmr-17x-x-120">Simulation-Based Optimization</span></p></div>
+<div class="centerline"> <span class="cmr-12x-x-120">S</span><span class="cmr-12x-x-120">ébastien Le Digabel and Stefan M.</span><span class="cmr-12x-x-120">&nbsp;Wild</span> </div>
+<p class="indent"> <span class="cmbxti-10">WARNING: </span><span class="cmti-10">This page is heavily under construction, proceed with caution!</span>
+<span class="cmti-10">Updated December 16, 2016</span>
+</p><h4 class="likesubsectionHead"><a id="x1-1000"></a>About</h4>
+<p class="noindent">This page contains supplemental information for the paper <span class="cite">[<a href="#Xtaxonomy15">9</a>]</span>:
+</p><ul class="itemize1">
+<li class="itemize">A Taxonomy of Constraints in Black-Box and Simulation-Based
+Optimization by Sébastien Le Digabel and S. Wild. Mathematics and
+Computer Science Division Preprint ANL/MCS-P5350-0515, 2016.</li></ul>
+<p class="indent"> Here we provide examples for each of the nine leaves of the constraint taxonomy
+tree:
+</p><div class="center">
+<p class="noindent">
+</p><p class="noindent"><img src="images/taxcon_files/tree.png" alt="PIC"></p></div>
+<p class="indent"> For additional information, and to submit use cases, please contact the
+authors.
+</p><p class="noindent">
+</p><h3 class="likesectionHead"><a id="x1-2000"></a>Short case studies</h3>
+<a id="x1-2000doc"></a>
+<p class="noindent">This supplement shows that each of the nine leaves of the taxonomy tree is nonempty
+by providing constraint specifications, including examples from the literature, that
+belong to each leaf.
+</p><p class="indent"> We note that many SBO problem specifications in the literature are composed of
+constraints of different types. The community groundwater problem&nbsp;<span class="cite">[<a href="#XFoRe_etal08">5</a>]</span> has <span class="cmss-10">KSRQ</span>
+constraints as well as bound and linear constraints (<span class="cmss-10">KA**</span>), while the LOCKWOOD
+problem&nbsp;<span class="cite">[<a href="#XMatott2011">12</a>]</span> has a linear objective and simulation constraints (<span class="cmss-10">S</span>); different
+simulation-based instances of the LOCKWOOD constraints are considered in&nbsp;<span class="cite">[<a href="#XAKSW12">7</a>]</span>
+alongside solution methodologies for the resulting formulations. The STYRENE
+problem from&nbsp;<span class="cite">[<a href="#XAuBeLe08">2</a>]</span> has 11 simulation constraints corresponding to Leaves&nbsp;5 and&nbsp;8 of
+the taxonomy tree: 7 quantifiable and relaxable constraints <span class="cmss-10">KSRQ</span>, and 4 unrelaxable
+binary constraints <span class="cmss-10">KSUN</span>.
+</p><p class="noindent">
+</p><h4 class="subsectionHead"><span class="titlemark">0.1 </span> <a id="x1-30000.1"></a><span class="cmss-10">KARQ</span>: Quantifiable Relaxable Algebraic Known</h4>
+<p class="noindent">This constraint class captures the most common types of constraints found in
+classical nonlinear optimization.
+</p><p class="indent">
+</p><dl class="description"><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description"><span class="cmss-10">location</span><sub><span class="cmr-7">1</span></sub> <img src="images/taxcon_files/supplement0x.png" alt="∈∕" class="notin"> <span class="cmss-10">forest</span>
+<p class="noindent">The GMON problem described in&nbsp;<span class="cite">[<a href="#XAlAuGaLeDLe2013">1</a>]</span> involves placing gamma monitoring
+devices in a region represented by the image of a map. There are several
+locations on the map (corresponding to forests, lakes, etc.) that are deemed
+unallowable for placement. However, the simulation, which analyzes the
+effects of placing devices at particular locations, is independent of the
+surface topology and thus can still evaluate such unallowable placements.
+The constraints associated with these unallowable locations are also
+quantifiable, since one can compute distances to the nearest (in)feasible
+location on the map.
+</p></dd><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description">0<span class="cmmi-10">.</span>15 <span class="cmsy-10">≤ </span><span class="cmmi-10">x</span><sub><span class="cmr-7">1</span></sub> <span class="cmsy-10">≤ </span>0<span class="cmmi-10">.</span>17
+<p class="noindent">In&nbsp;<span class="cite">[<a href="#XUNEDF0">8</a>]</span>, a nonlinear-least-squares problem is solved for parameter values
+that calibrate a nuclear energy density functional to experimental
+data. Each residual involves running a simulation associated with
+self-consistency of the underlying system. Bounds are imposed in&nbsp;<span class="cite">[<a href="#XUNEDF0">8</a>]</span> on
+half of the parameters (those associated with nuclear matter properties)
+because the unconstrained solution yields values that are not transferable
+to other nuclear structure calculations. Because the simulation still yields
+meaningful output when these bounds are violated (as evidenced by the
+unconstrained problem being solved), these algebraic and quantifiable
+constraints are also relaxable.
+</p></dd><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description"><span class="cmmi-10">x</span><sub><span class="cmr-7">1</span></sub> <span class="cmsy-10">∈{</span>0<span class="cmmi-10">,</span>1<span class="cmsy-10">}</span>
+<p class="noindent">A violation measure is quantified by, for example, min<span class="big"><img src="images/taxcon_files/supplement1x.png" alt="{" class="left" align="middle"></span><span class="cmsy-10">|</span><span class="cmmi-10">x</span><sub><span class="cmmi-7">i</span></sub><span class="cmsy-10">|</span><span class="cmmi-10">, </span><span class="cmsy-10">|</span>1<span class="cmsy-10">−</span><span class="cmmi-10">x</span><sub><span class="cmmi-7">i</span></sub><span class="cmsy-10">|</span><span class="big"><img src="images/taxcon_files/supplement2x.png" alt="}" class="left" align="middle"></span> and
+thus this constraint is <span class="cmss-10">KARQ</span> provided the binary variable <span class="cmmi-10">x</span><sub><span class="cmr-7">1</span></sub> is relaxable.</p></dd></dl>
+<p class="noindent">
+</p><h4 class="subsectionHead"><span class="titlemark">0.2 </span> <a id="x1-40000.2"></a><span class="cmss-10">KARN</span>: Nonquantifiable Relaxable Algebraic Known</h4>
+<p class="noindent">A good example of an <span class="cmss-10">KARN</span> constraint is a categorical (e.g., nonordinal) variable
+constrained to a subset of its possible values. Such cases arise often in multifidelity
+optimization.
+</p><p class="indent">
+</p><dl class="description"><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description"><span class="cmss-10">simulator </span>= <span class="cmss-10">Cart3D</span>
+<p class="noindent">For the purpose of designing a supersonic airfoil,&nbsp;<span class="cite">[<a href="#XMarch2012">10</a>]</span> considers different
+available analysis simulators – such as a linearized panel method
+(“panel”) and an Euler CFD solver (“Cart3D”) – with varying fidelity
+levels. The final design must be evaluated by the more costly and
+accurate Cart3D simulator, but an optimization algorithm can use the
+less expensive, inaccurate panel simulator at intermediate points. The
+constraint “simulator = Cart3D” is relaxable because another option for
+the simulator exists.
+</p></dd><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description"><span class="cmmi-10">x</span><sub><span class="cmr-7">2</span></sub> = <span class="cmss-10">O2</span> if <span class="cmmi-10">x</span><sub><span class="cmr-7">1</span></sub> = <span class="cmss-10">gcc</span>
+<p class="noindent">Consider a simulator that drives a <span class="cmss-10">C++ </span>compilation, based on two
+categorical variables, each specified to take on two allowable values,
+<span class="cmmi-10">x</span><sub><span class="cmr-7">1</span></sub> <span class="cmsy-10">∈ {</span><span class="cmss-10">gcc</span><span class="cmmi-10">,</span><span class="cmss-10">icc</span><span class="cmsy-10">} </span>and <span class="cmmi-10">x</span><sub><span class="cmr-7">2</span></sub> <span class="cmsy-10">∈ {</span><span class="cmss-10">O2</span><span class="cmmi-10">,</span><span class="cmss-10">O3</span><span class="cmsy-10">}</span>. We want the final solution to have
+<span class="cmmi-10">x</span><sub><span class="cmr-7">2</span></sub> = <span class="cmss-10">O2</span> if <span class="cmmi-10">x</span><sub><span class="cmr-7">1</span></sub> = <span class="cmss-10">gcc</span>, and this constraint is of type <span class="cmss-10">KARN</span>.
+</p><p class="noindent">We note that the two set constraints, <span class="cmmi-10">x</span><sub><span class="cmr-7">1</span></sub> <span class="cmsy-10">∈{</span><span class="cmss-10">gcc</span><span class="cmmi-10">,</span><span class="cmss-10">icc</span><span class="cmsy-10">} </span>and <span class="cmmi-10">x</span><sub><span class="cmr-7">2</span></sub> <span class="cmsy-10">∈{</span><span class="cmss-10">O2</span><span class="cmmi-10">,</span><span class="cmss-10">O3</span><span class="cmsy-10">}</span>,
+may be <span class="cmss-10">KAUN</span>; see below.</p></dd></dl>
+<p class="noindent">
+</p><h4 class="subsectionHead"><span class="titlemark">0.3 </span> <a id="x1-50000.3"></a><span class="cmss-10">KAUQ</span>: Quantifiable Unrelaxable Algebraic Known</h4>
+<p class="noindent">In SBO, one of the most common occurrences of <span class="cmss-10">KAUQ</span> constraints are algebraic
+constraints that play a (possibly secondary) role of ensuring that the input to a
+simulation satisfies the expectations of the simulator.
+</p><p class="indent">
+</p><dl class="description"><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description"><span class="cmmi-10">r</span><sub><span class="cmmi-7">i</span></sub> <span class="cmsy-10">≥ </span>0, <span class="cmmi-10">i </span>= 1<span class="cmmi-10">,</span><span class="cmmi-10">…</span>6
+<p class="noindent">For the groundwater bioremediation problem considered in&nbsp;<span class="cite">[<a href="#XAKSW12">7</a>]</span>, pumping
+rates <span class="cmmi-10">r </span>must be determined for each of six extraction wells. Because the
+simulator was hardcoded to allow only for extraction (and not injection) at
+these six sites, the constraints are unrelaxable. Furthermore, the quantity
+max<span class="cmsy-10">{</span>0<span class="cmmi-10">,r</span><sub><span class="cmmi-7">i</span></sub><span class="cmsy-10">} </span>provides a quantifiable measure of feasibility.
+</p></dd><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description"><span class="cmmi-10">x </span><span class="cmsy-10">∈{</span>1<span class="cmmi-10">,</span>3<span class="cmmi-10">,</span>4<span class="cmsy-10">} </span>(or <span class="cmmi-10">x </span>belonging in any set with a means of measuring distance
+to the set)
+<p class="noindent">When this constraint is unrelaxable, it is a <span class="cmss-10">KAUQ</span> constraint; the distance
+to the set provides a means of quantifying how infeasible an <span class="cmmi-10">x </span>is (despite
+that one could not evaluate some simulation quantity at such infeasible
+points).
+</p></dd></dl>
+<p class="noindent">
+</p><h4 class="subsectionHead"><span class="titlemark">0.4 </span> <a id="x1-60000.4"></a><span class="cmss-10">KAUN</span>: Nonquantifiable Unrelaxable Algebraic Known</h4>
+<p class="noindent">The allowable domain of a categorical variable is a typical example of a <span class="cmss-10">KAUN</span>
+constraint.
+</p><p class="indent">
+</p><dl class="description"><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description"><span class="cmss-10">compiler</span> <span class="cmsy-10">∈{</span><span class="cmss-10">gcc</span><span class="cmmi-10">,</span><span class="cmss-10">icc</span><span class="cmsy-10">}</span>
+<p class="noindent">Categorical decision variables often exist when optimizing the performance
+of a computer code. For example, for optimization of linear algebra kernels
+in&nbsp;<span class="cite">[<a href="#XBalaprakash20112136">4</a>]</span>, categorical variables such as loop order (e.g., permuting groups of
+nested for loops) and compiler type are considered.
+</p></dd></dl>
+<p class="noindent">
+</p><h4 class="subsectionHead"><span class="titlemark">0.5 </span> <a id="x1-70000.5"></a><span class="cmss-10">KSRQ</span>: Quantifiable Relaxable Simulation Known</h4>
+<p class="noindent">Any quantifiable and relaxable constraint that depends on a simulation output is a
+<span class="cmss-10">KSRQ</span> constraint.
+</p><p class="indent">
+</p><dl class="description"><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description">Minimal purity level of produced styrene of 0.99.
+<p class="noindent">In the chemical engineering application for the production of styrene
+considered in&nbsp;<span class="cite">[<a href="#XAuBeLe08">2</a>]</span>, called STYRENE, one of the simulation outputs is the
+purity of the styrene produced. The problem demands that a minimal
+purity level is met, but intermediate designs can fall below this level, with
+a natural measure of violation being how far short of 0.99 the obtained
+purity level is.
+</p></dd><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description">Percentage of test problems solved must be at least 90%.
+<p class="noindent">In&nbsp;<span class="cite">[<a href="#XAuDaOr2010">3</a>]</span>, the algorithmic parameters of an optimization solver are tuned in
+order to minimize the CPU time needed to solve a set of test problems.
+Here, the “simulator” is a call of the solver being tuned on a particular test
+problem. The authors consider constraints on correctness of the output, in
+particular that at least 90% of the runs satisfy a prescribed convergence
+criterion.
+</p></dd><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description">A budget based on economical criteria, <span class="cmmi-10">S</span>(<span class="cmmi-10">x</span>) <span class="cmsy-10">≤ </span><span class="cmmi-10">b</span>.</dd></dl>
+<p class="noindent">
+</p><h4 class="subsectionHead"><span class="titlemark">0.6 </span> <a id="x1-80000.6"></a><span class="cmss-10">KSRN</span>: Nonquantifiable Relaxable Simulation Known</h4>
+<p class="noindent">A relaxable constraint that relies on binary or nonordinal output from a simulation is
+a <span class="cmss-10">KSRN</span> constraint.
+</p><p class="indent">
+</p><dl class="description"><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description"><span class="cmss-10">no compiler warnings</span>
+<p class="noindent">A common objective in code performance optimization is to minimize the
+run time of a generated code. Changes to the code may result in code that
+still compiles and runs, but for which undesirable warnings are produced
+during compilation. In&nbsp;<span class="cite">[<a href="#XGraTadWil2013">6</a>]</span>, the run times of decision variable values
+that resulted in problems (errors or warnings) during compilation were
+discarded from the analysis. The constraint that there are no warnings
+requires one to generate, compile, and check the compilation output of the
+associated code is thus “simulation-based;”&nbsp;<span class="cite">[<a href="#XGraTadWil2013">6</a>]</span> only considers the binary
+measures of this constraint, which is relaxable since run times can still be
+obtained (assuming that no compile errors were seen).
+</p></dd><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description"><span class="cmss-10">toxicity value exceeded</span>
+<p class="noindent">A simulator displays a flag indicating whether a toxicity level has been
+reached during the simulation, but we know neither when this occurred
+nor the level of toxicity.
+</p></dd></dl>
+<p class="noindent">
+</p><h4 class="subsectionHead"><span class="titlemark">0.7 </span> <a id="x1-90000.7"></a><span class="cmss-10">KSUQ</span>: Quantifiable Unrelaxable Simulation Known</h4>
+<p class="noindent">Constraints that are both quantifiable and unrelaxable arise, for example,
+in multidisciplinary optimization (MDO), where one has a compatibility
+constraint between the simulations of two or more disciplines. Violating such
+a constraint can lead to unmeaningful output with respect to one of the
+disciplines.
+</p><p class="indent">
+</p><dl class="description"><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description"><span class="cmmi-10">s</span><sub><span class="cmr-7">1</span></sub> <span class="cmsy-10">≥ </span>0
+<p class="noindent">Compatibility constraints in MDO often arise when a given discipline’s
+output(s) is used as the input of another discipline. Bounds on these
+quantities are typical <span class="cmss-10">KSUQ</span> constraints, such as the problem presented
+in&nbsp;<span class="cite">[<a href="#XMaMaTe2009">11</a>, Section&nbsp;5.1]</span>. In this example, the first discipline output (<span class="cmmi-10">y</span><sub><span class="cmr-7">1</span></sub>)
+appears with a squared root in the equation of the other discipline. The
+bound constraint <span class="cmmi-10">y</span><sub><span class="cmr-7">1</span></sub> <span class="cmsy-10">≥ </span>3<span class="cmmi-10">.</span>16 is specified in&nbsp;<span class="cite">[<a href="#XMaMaTe2009">11</a>]</span> and is a <span class="cmss-10">KSRQ</span> constraint
+because it can be relaxed (albeit not arbitrarily so) and still result in
+meaningful output from the second discipline. The constraint <span class="cmmi-10">y</span><sub><span class="cmr-7">1</span></sub> <span class="cmsy-10">≥ </span>0,
+however, is unrelaxable and thus a <span class="cmss-10">KSUQ</span> constraint (despite seeming to
+be redundant in the presence of the relaxable constraint <span class="cmmi-10">y</span><sub><span class="cmr-7">1</span></sub> <span class="cmsy-10">≥ </span>3<span class="cmmi-10">.</span>16).
+</p></dd><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description"><span class="cmmi-10">c</span><sub><span class="cmmi-7">S</span></sub>(<span class="cmmi-10">x</span>) <span class="cmsy-10">≥ </span>0
+<p class="noindent">One of the outputs <span class="cmmi-10">c</span><sub><span class="cmmi-7">S</span></sub>(<span class="cmmi-10">x</span>) of a simulation is a concentration level; if
+it is below zero, the simulation stops and displays <span class="cmss-10">NaN </span>for all the
+outputs except <span class="cmmi-10">c</span><sub><span class="cmmi-7">S</span></sub>. Consequently, this constraint is both unrelaxable and
+quantifiable (since there is a measure for how close one is to violating this
+constraint).</p></dd></dl>
+<p class="noindent">
+</p><h4 class="subsectionHead"><span class="titlemark">0.8 </span> <a id="x1-100000.8"></a><span class="cmss-10">KSUN</span>: Nonquantifiable Unrelaxable Simulation Known</h4>
+<p class="noindent">Constraints based on binary- and nonordinal-valued simulation outputs that must be
+satisfied are typical <span class="cmss-10">KSUN</span> constraints.
+</p><p class="indent">
+</p><dl class="description"><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description"><span class="cmtt-10">SEP-STY </span>is structurally acceptable for subsequent simulations.
+<p class="noindent">In the STYRENE problem of&nbsp;<span class="cite">[<a href="#XAuBeLe08">2</a>]</span>, four of the eleven simulation-based
+constraints correspond to binary flags about the convergence of internal
+numerical methods. In the case of the <span class="cmtt-10">SEP-STY </span>flag denoting failure,
+some of the other flags may still denote success; hence, one has richer
+information about the source of failure than one does for a hidden
+constraint.
+</p></dd><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description"><span class="cmtt-10">exitflag </span>= 0
+<p class="noindent">If a simulation outputs an exit flag that denotes success (“0”) or multiple
+error code values, each with associated documentation, then one can have
+an indication for why the simulation did not succeed.</p></dd></dl>
+<p class="indent"> Each of these examples is not a hidden constraint since the reason for the
+violation can be identified. In contrast, a single binary flag indicating that the
+simulation failed is considered as a hidden constraint. In the same way, an error
+message that cannot be interpreted is equivalent to such a flag and hence should be
+interpreted as hidden.
+</p><p class="noindent">
+</p><h4 class="subsectionHead"><span class="titlemark">0.9 </span> <a id="x1-110000.9"></a><span class="cmss-10">HSUN</span>: Hidden</h4>
+<p class="noindent">Hidden constraints provide no information about the cause for failure of a
+simulation.
+</p><p class="indent">
+</p><dl class="description"><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description">When sampled uniformly from a specified hyperrectangle, the STYRENE
+black box of&nbsp;<span class="cite">[<a href="#XAuBeLe08">2</a>]</span> terminates prematurely 60% of the time, resulting in a
+failure. These failures are not related to the four binary flags described in
+the <span class="cmss-10">KSUN</span> examples and thus one has no means of targeting the cause of
+the failure.
+</dd><dt class="description">
+<span class="cmbx-10">Ex.-</span> </dt><dd class="description">The simulation failed to complete and nothing is displayed, or a simple
+flag is raised or an undocumented error number indicated.
+</dd></dl>
+<p class="noindent">
+</p><h3 class="likesectionHead"><a id="x1-120000.9"></a>References</h3>
+<p class="noindent">
+</p><div class="thebibliography">
+<p class="bibitem"><span class="biblabel">
+[1]<span class="bibsp">&nbsp;&nbsp;&nbsp;</span></span><a id="XAlAuGaLeDLe2013"></a>Alarie, S., Audet, C., Garnier,
+V., Le&nbsp;Digabel, S., Leclaire, L.A.: Snow water equivalent estimation using
+blackbox optimization. Pacific Journal of Optimization <span class="cmbx-10">9</span>(1), 1–21 (2013).
+URL <a href="http://www.ybook.co.jp/online2/oppjo/vol9/p1.html" class="url"><span class="cmtt-10">http://www.ybook.co.jp/online2/oppjo/vol9/p1.html</span></a>
+</p>
+<p class="bibitem"><span class="biblabel">
+[2]<span class="bibsp">&nbsp;&nbsp;&nbsp;</span></span><a id="XAuBeLe08"></a>Audet, C., Béchard, V., Le&nbsp;Digabel, S.: Nonsmooth optimization
+through mesh adaptive direct search and variable neighborhood search.
+Journal of Global Optimization <span class="cmbx-10">41</span>(2), 299–318 (2008). DOI&nbsp;10.1007/
+s10898-_007-_9234-_1
+</p>
+<p class="bibitem"><span class="biblabel">
+[3]<span class="bibsp">&nbsp;&nbsp;&nbsp;</span></span><a id="XAuDaOr2010"></a>Audet, C., Dang, C.K., Orban, D.: Algorithmic parameter optimization
+of the DFO method with the OPAL framework. In: Software Automatic
+Tuning: From Concepts to State-of-the-Art Results, k. naono and k.
+teranishi and j. cavazos and r. suda edn., chap.&nbsp;15, pp. 255–274. Springer
+(2010). URL <a href="http://goo.gl/7uhn4" class="url"><span class="cmtt-10">http://goo.gl/7uhn4</span></a>
+</p>
+<p class="bibitem"><span class="biblabel">
+[4]<span class="bibsp">&nbsp;&nbsp;&nbsp;</span></span><a id="XBalaprakash20112136"></a>Balaprakash, P., Wild, S.M., Hovland, P.D.: Can search algorithms save
+large-scale automatic performance tuning? Procedia Computer Science
+(ICCS 2011) <span class="cmbx-10">4</span>, 2136–2145 (2011). DOI&nbsp;10.1016/j.procs.2011.04.234
+</p>
+<p class="bibitem"><span class="biblabel">
+[5]<span class="bibsp">&nbsp;&nbsp;&nbsp;</span></span><a id="XFoRe_etal08"></a>Fowler, K.R., Reese, J.P., Kees, C.E., Dennis, Jr., J.E., Kelley, C.T.,
+Miller, C.T., Audet, C., Booker, A.J., Couture, G., Darwin, R.W., Farthing,
+M.W., Finkel, D.E., Gablonsky, J.M., Gray, G., Kolda, T.G.: Comparison of
+derivative-free optimization methods for groundwater supply and hydraulic
+capture community problems. Advances in Water Resources <span class="cmbx-10">31</span>(5), 743–757
+(2008). DOI&nbsp;10.1016/j.advwatres.2008.01.010
+</p>
+<p class="bibitem"><span class="biblabel">
+[6]<span class="bibsp">&nbsp;&nbsp;&nbsp;</span></span><a id="XGraTadWil2013"></a>Gramacy, R.B., Taddy, M.A., Wild, S.M.: Variable selection and
+sensitivity analysis via dynamic trees with an application to computer code
+performance tuning. Annnals of Applied Statistics <span class="cmbx-10">7</span>(1), 51–80 (2013).
+DOI&nbsp;10.1214/12-_AOAS590
+</p>
+<p class="bibitem"><span class="biblabel">
+[7]<span class="bibsp">&nbsp;&nbsp;&nbsp;</span></span><a id="XAKSW12"></a>Kannan, A., Wild, S.M.:
+Benefits of deeper analysis in simulation-based groundwater optimization
+problems. In: Proceedings of the XIX International Conference on
+Computational Methods in Water Resources (CMWR 2012) (2012). URL
+<a href="http://www.mcs.anl.gov/~wild/papers/2012/AKSW12.pdf" class="url"><span class="cmtt-10">http://www.mcs.anl.gov/</span><span class="cmtt-10">~</span><span class="cmtt-10">wild/papers/2012/AKSW12.pdf</span></a>
+</p>
+<p class="bibitem"><span class="biblabel">
+[8]<span class="bibsp">&nbsp;&nbsp;&nbsp;</span></span><a id="XUNEDF0"></a>Kortelainen, M., Lesinski, T., Moré, J., Nazarewicz, W., Sarich,
+J., Schunck, N., Stoitsov, M.V., Wild, S.M.: Nuclear energy density
+optimization. Physical Review C <span class="cmbx-10">82</span>(2), 024,313 (2010). DOI&nbsp;10.1103/
+PhysRevC.82.024313
+</p>
+<p class="bibitem"><span class="biblabel">
+[9]<span class="bibsp">&nbsp;&nbsp;&nbsp;</span></span><a id="Xtaxonomy15"></a>Le&nbsp;Digabel, S., Wild, S.M.: A taxonomy of constraints in black-box
+simulation-based optimization. Preprint ANL/MCS-P5350-0515, Argonne
+National Laboratory, Mathematics and Computer Science Division (2015).
+URL <a href="http://www.mcs.anl.gov/papers/P5350-0515.pdf" class="url"><span class="cmtt-10">http://www.mcs.anl.gov/papers/P5350-_0515.pdf</span></a>
+</p>
+<p class="bibitem"><span class="biblabel">
+[10]<span class="bibsp">&nbsp;&nbsp;&nbsp;</span></span><a id="XMarch2012"></a>March, A., Willcox, K.: Constrained multifidelity optimization using
+model calibration. Struct. Multidiscip. Optim. <span class="cmbx-10">46</span>(1), 93–109 (2012).
+DOI&nbsp;10.1007/s00158-_011-_0749-_1
+</p>
+<p class="bibitem"><span class="biblabel">
+[11]<span class="bibsp">&nbsp;&nbsp;&nbsp;</span></span><a id="XMaMaTe2009"></a>Martins, J., Marriage, C., Tedford, N.: pyMDO: An Object-Oriented
+Framework for Multidisciplinary Design Optimization. ACM Transactions
+on Mathematical Software <span class="cmbx-10">36</span>(4), 20:1–20:25 (2009). DOI&nbsp;10.1145/
+1555386.1555389
+</p>
+<p class="bibitem"><span class="biblabel">
+[12]<span class="bibsp">&nbsp;&nbsp;&nbsp;</span></span><a id="XMatott2011"></a>Matott, L.S., Leung, K., Sim, J.: Application of MATLAB and Python
+optimizers to two case studies involving groundwater flow and contaminant
+transport modeling. Computers &amp; Geosciences <span class="cmbx-10">37</span>(11), 1894–1899 (2011).
+DOI&nbsp;10.1016/j.cageo.2011.03.017
+</p>
+</div>
+
+</body></html>
